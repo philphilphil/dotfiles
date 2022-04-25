@@ -13,6 +13,7 @@ set splitbelow splitright
 set title
 set ttimeoutlen=0
 set wildmenu
+set showcmd
 
 " Tabs size
 set expandtab
@@ -33,21 +34,17 @@ nmap <leader>w :bNext<CR>
 """""" Plugins """"""
 call plug#begin()
     " Appearance
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-    " Utilities
+    " Plug 'vim-airline/vim-airline'
+    " Plug 'vim-airline/vim-airline-themes'
     Plug 'sheerun/vim-polyglot'
-    Plug 'jiangmiao/auto-pairs'
+    Plug 'tpope/vim-surround'
     Plug 'preservim/nerdtree'
 
-    " Completion / linters / formatters
-    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    " Plug 'plasticboy/vim-markdown'
-    " Plug 'rust-lang/rust.vim'
     source ~/.config/nvim/plugins/fzf.vim
     source ~/.config/nvim/plugins/nerdtree.vim
     Plug 'tpope/vim-commentary'
 
+    " lsp / rust stuff
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-cmp'
     Plug 'hrsh7th/cmp-nvim-lsp'
@@ -57,13 +54,15 @@ call plug#begin()
     Plug 'simrat39/rust-tools.nvim'
     Plug 'hrsh7th/vim-vsnip'
 
-" Git
+    " better buffers
+    Plug 'kyazdani42/nvim-web-devicons' 
+    Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+
+    " git indicators
     Plug 'airblade/vim-gitgutter'
 
-    " Colorsheme
     Plug 'morhetz/gruvbox'
 
-    " learing
     Plug 'ThePrimeagen/vim-be-good'
 
 call plug#end()
@@ -183,3 +182,11 @@ autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 " Goto previous/next diagnostic warning/error
 nnoremap <silent> g[ <cmd>lua vim.diagnostic.goto_prev()<CR>
 nnoremap <silent> g] <cmd>lua vim.diagnostic.goto_next()<CR>
+" have a fixed column for the diagnostics to appear in
+" this removes the jitter when warnings/errors flow in
+set signcolumn=yes
+
+set termguicolors
+lua << EOF
+require("bufferline").setup{}
+EOF
