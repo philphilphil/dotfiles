@@ -30,21 +30,27 @@ nmap <leader>k :nohlsearch<CR>
 nmap <leader>e :bnext<CR>
 nmap <leader>w :bNext<CR>
 
+nnoremap <Leader>= :vertical resize +40<CR>
+nnoremap <Leader>- :vertical resize -40<CR>
+
 
 """""" Plugins """"""
 call plug#begin()
     " Appearance
-    " Plug 'vim-airline/vim-airline'
-    " Plug 'vim-airline/vim-airline-themes'
-    Plug 'sheerun/vim-polyglot'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
     Plug 'tpope/vim-surround'
-    Plug 'preservim/nerdtree'
+    Plug 'gruvbox-community/gruvbox'
 
+    " nicer buffers
+    Plug 'kyazdani42/nvim-web-devicons' 
+    Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+
+    " search / tree
     source ~/.config/nvim/plugins/fzf.vim
     source ~/.config/nvim/plugins/nerdtree.vim
-    Plug 'tpope/vim-commentary'
 
-    " lsp / rust stuff
+    " lsp / code stuff
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-cmp'
     Plug 'hrsh7th/cmp-nvim-lsp'
@@ -53,16 +59,13 @@ call plug#begin()
     Plug 'hrsh7th/cmp-buffer'
     Plug 'simrat39/rust-tools.nvim'
     Plug 'hrsh7th/vim-vsnip'
-
-    " better buffers
-    Plug 'kyazdani42/nvim-web-devicons' 
-    Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+    Plug 'tpope/vim-commentary'
+    " Plug 'sheerun/vim-polyglot'
 
     " git indicators
     Plug 'airblade/vim-gitgutter'
 
-    Plug 'morhetz/gruvbox'
-
+    " misc
     Plug 'ThePrimeagen/vim-be-good'
 
 call plug#end()
