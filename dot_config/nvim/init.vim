@@ -58,6 +58,7 @@ call plug#begin()
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'simrat39/rust-tools.nvim'
+    Plug 'rust-lang/rust.vim'
     Plug 'hrsh7th/vim-vsnip'
     Plug 'tpope/vim-commentary'
     " Plug 'sheerun/vim-polyglot'
@@ -74,7 +75,7 @@ call plug#end()
 colorscheme gruvbox
 
 let g:airline_theme='gruvbox'
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:rustfmt_autosave = 1 
 
