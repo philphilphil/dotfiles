@@ -70,7 +70,8 @@ call plug#begin()
     Plug 'simrat39/rust-tools.nvim'
     Plug 'rust-lang/rust.vim'
     Plug 'hrsh7th/vim-vsnip'
-    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-commentary'     
+    Plug 'jiangmiao/auto-pairs'
     " Plug 'sheerun/vim-polyglot'
 
     " git indicators
