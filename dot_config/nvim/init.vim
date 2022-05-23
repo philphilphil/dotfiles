@@ -51,6 +51,7 @@ call plug#begin()
     Plug 'vim-airline/vim-airline-themes'
     Plug 'tpope/vim-surround'
     Plug 'gruvbox-community/gruvbox'
+    Plug 'ggandor/lightspeed.nvim'
 
     " nicer buffers
     Plug 'kyazdani42/nvim-web-devicons' 
