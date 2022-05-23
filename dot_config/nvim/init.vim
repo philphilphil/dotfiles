@@ -14,6 +14,7 @@ set title
 set ttimeoutlen=0
 set wildmenu
 set showcmd
+set ignorecase
 
 " Tabs size
 set expandtab
