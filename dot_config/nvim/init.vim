@@ -50,7 +50,7 @@ call plug#begin()
     " Appearance
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'tpope/vim-surround'
+    " Plug 'tpope/vim-surround'
     Plug 'gruvbox-community/gruvbox'
     Plug 'ggandor/lightspeed.nvim'
 
@@ -115,9 +115,7 @@ local opts = {
         autoSetHints = true,
         hover_with_actions = true,
         inlay_hints = {
-            show_parameter_hints = false,
-            parameter_hints_prefix = "",
-            other_hints_prefix = "",
+            enabled = false
         },
     },
 
