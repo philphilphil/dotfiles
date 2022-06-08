@@ -28,7 +28,7 @@ syntax on
 
 """""" Mappings  """"""
 let mapleader = "\<space>"
-
+map <Esc><Esc> :w<CR>
 nmap <leader>k :nohlsearch<CR>
 nnoremap <Leader>= :vertical resize +40<CR>
 nnoremap <Leader>- :vertical resize -40<CR>
