@@ -37,6 +37,7 @@ yabai -m config mouse_action1                move
 yabai -m config mouse_action2                resize
 yabai -m config mouse_drop_action            swap
 yabai -m rule --add app="^Stats$" manage=off
+yabai -m rule --add app="^Microsoft Remote Desktop$" manage=off
 
 # general space settings
 yabai -m config layout                       bsp
