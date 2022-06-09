@@ -49,8 +49,10 @@ nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
 
 " Code navigation shortcuts
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gr    <cmd>Telescope lsp_references<CR>
+nnoremap <silent> gs    <cmd>Telescope lsp_document_symbols<CR>
+nnoremap <silent> gd    <cmd>Telescope lsp_definitions<CR>
+nnoremap <silent> gi    <cmd>Telescope lsp_implementations<CR>
 nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <silent> gn    <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> ff    <cmd>lua vim.lsp.buf.formatting()<CR>
@@ -63,6 +65,13 @@ nnoremap <silent> g] <cmd>lua vim.diagnostic.goto_next()<CR>
 
 " trouble / error list view
 nnoremap <leader>x <cmd>TroubleToggle workspace_diagnostics<cr>
+
+" telescope
+nnoremap <leader>f <cmd>Telescope find_files<cr>
+nnoremap <leader>r <cmd>Telescope live_grep<cr>
+nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap <leader>vh <cmd>Telescope help_tags<cr>
+nnoremap <leader>vc <cmd>Telescope commands<cr>
 
 " nerdtree
 nnoremap <expr> <leader>n g:NERDTree.IsOpen() ? ':NERDTreeClose<CR>' : @% == '' ? ':NERDTree<CR>' : ':NERDTreeFind<CR>'
@@ -85,7 +94,7 @@ call plug#begin()
     " tree
     Plug 'preservim/nerdtree'
     " search
-    " source ~/.config/nvim/plugins/fzf.vim
+    Plug 'nvim-telescope/telescope.nvim'
 
     " lsp / code stuff
     Plug 'neovim/nvim-lspconfig'
