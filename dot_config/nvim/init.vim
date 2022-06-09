@@ -46,6 +46,7 @@ nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
 nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
 nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
 nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
+nnoremap <silent><leader>w <Cmd>bd<CR>
 
 " Code navigation shortcuts
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
@@ -58,6 +59,9 @@ nnoremap <silent> gn    <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> ff    <cmd>lua vim.lsp.buf.formatting()<CR>
 " Show diagnostic popup on cursor hold
 autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
+
+" open tree
+nnoremap <leader>n :NvimTreeToggle<CR>
 
 " Goto previous/next diagnostic warning/error
 nnoremap <silent> g[ <cmd>lua vim.diagnostic.goto_prev()<CR>
@@ -72,10 +76,6 @@ nnoremap <leader>r <cmd>Telescope live_grep<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>vh <cmd>Telescope help_tags<cr>
 nnoremap <leader>vc <cmd>Telescope commands<cr>
-
-" nerdtree
-nnoremap <expr> <leader>n g:NERDTree.IsOpen() ? ':NERDTreeClose<CR>' : @% == '' ? ':NERDTree<CR>' : ':NERDTreeFind<CR>'
-autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
 
 """""" Plugins """"""
 call plug#begin()
@@ -92,7 +92,7 @@ call plug#begin()
     Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 
     " tree
-    Plug 'preservim/nerdtree'
+    Plug 'kyazdani42/nvim-tree.lua'
     " search
     Plug 'nvim-telescope/telescope.nvim'
 
@@ -126,11 +126,6 @@ let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 0
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:rustfmt_autosave = 1 
-let NERDTreeShowHidden=1
-let NERDTreeMinimalUI=1
-" avoid crashes when calling vim-plug functions while the cursor is on the NERDTree window
-let g:plug_window = 'noautocmd vertical topleft new'
-
 
 """"""" Lua Plugin Settings """""""
 lua <<EOF
@@ -211,6 +206,9 @@ require("bufferline").setup{}
 
 -- Error list at bottom
 require("trouble").setup {}
+
+-- file tree
+require'nvim-tree'.setup {}
 EOF
 
 
