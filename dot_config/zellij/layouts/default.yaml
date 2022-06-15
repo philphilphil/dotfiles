@@ -2,22 +2,15 @@
 template:
   direction: Horizontal
   parts:
-    - direction: Vertical  # part 1
+    - direction: Vertical # part 1
+      body: true
+    - direction: Vertical # part 2
       borderless: true
       split_size:
         Fixed: 1
       run:
         plugin:
-          location: "zellij:tab-bar"
-    - direction: Vertical # part 2
-      body: true
-    - direction: Vertical # part 3
-      borderless: true
-      split_size:
-        Fixed: 2
-      run:
-        plugin:
-          location: "zellij:status-bar"
+          location: "zellij:compact-bar"
 tabs:
   - name: "Code"
     focus: true
