@@ -1,0 +1,43 @@
+---
+template:
+  direction: Horizontal
+  parts:
+    - direction: Vertical  # part 1
+      borderless: true
+      split_size:
+        Fixed: 1
+      run:
+        plugin:
+          location: "zellij:tab-bar"
+    - direction: Vertical # part 2
+      body: true
+    - direction: Vertical # part 3
+      borderless: true
+      split_size:
+        Fixed: 2
+      run:
+        plugin:
+          location: "zellij:status-bar"
+tabs:
+  - name: "Code"
+    focus: true
+    parts:
+      - direction: Vertical
+        run:
+          # command: {cmd: cd, args: ["/home/phil/projekte/"]}
+        split_size:
+          Percent: 75
+        focus: true
+      - direction: Vertical 
+  - name: "Misc" 
+    direction: Horizontal
+    parts:
+      - direction: Horizontal
+      - direction: Horizontal
+  - name: "Server" 
+    direction: Horizontal
+    parts:
+      - direction: Horizontal
+        run:
+          command: {cmd: htop, args: []}
+      - direction: Horizontal

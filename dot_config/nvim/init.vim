@@ -77,6 +77,13 @@ nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>vh <cmd>Telescope help_tags<cr>
 nnoremap <leader>vc <cmd>Telescope commands<cr>
 
+" m/mm for cut
+nnoremap m d
+xnoremap m d
+
+nnoremap mm dd
+nnoremap M D
+
 """""" Plugins """"""
 call plug#begin()
     Plug 'nvim-lua/plenary.nvim'
@@ -95,6 +102,9 @@ call plug#begin()
     Plug 'kyazdani42/nvim-tree.lua'
     " search
     Plug 'nvim-telescope/telescope.nvim'
+
+    " Fix stupid cut on c/d/x
+    Plug 'svermeulen/vim-cutlass'
 
     " lsp / code stuff
     Plug 'neovim/nvim-lspconfig'
