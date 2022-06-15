@@ -24,9 +24,8 @@ tabs:
     parts:
       - direction: Vertical
         run:
-          # command: {cmd: cd, args: ["/home/phil/projekte/"]}
         split_size:
-          Percent: 75
+          Percent: 80
         focus: true
       - direction: Vertical 
   - name: "Misc" 
@@ -38,6 +37,4 @@ tabs:
     direction: Horizontal
     parts:
       - direction: Horizontal
-        run:
-          command: {cmd: htop, args: []}
       - direction: Horizontal
