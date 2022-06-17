@@ -86,20 +86,26 @@ nnoremap M D
 
 """""" Plugins """"""
 call plug#begin()
+    " misc
     Plug 'nvim-lua/plenary.nvim'
+    Plug 'kyazdani42/nvim-web-devicons' 
+    Plug 'kyazdani42/nvim-web-devicons' 
+
     " better status line
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
+    Plug 'feline-nvim/feline.nvim'
+
     " theme
     Plug 'gruvbox-community/gruvbox'
+
     " blazingly fast navigation
     Plug 'ggandor/lightspeed.nvim'
+
     " nicer buffers
-    Plug 'kyazdani42/nvim-web-devicons' 
     Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 
     " tree
     Plug 'kyazdani42/nvim-tree.lua'
+
     " search
     Plug 'nvim-telescope/telescope.nvim'
 
@@ -114,18 +120,23 @@ call plug#begin()
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/vim-vsnip'
+    Plug 'mfussenegger/nvim-dap'
+
+    " Git 
+    Plug 'lewis6991/gitsigns.nvim'
+
     " rust specific
     Plug 'simrat39/rust-tools.nvim'
     Plug 'rust-lang/rust.vim'
+
     " comment code in and out
     Plug 'tpope/vim-commentary'     
+
     " auto pairs for for brackets
     Plug 'jiangmiao/auto-pairs'
+
     " Error list at bottom
     Plug 'folke/trouble.nvim'
-
-    " misc
-    Plug 'ThePrimeagen/vim-be-good'
 call plug#end()
 
 
@@ -226,6 +237,29 @@ require("nvim-tree").setup({
     update_cwd = true
   },
 })
+
+-- Status line
+local gruvbox = {
+    fg = '#928374',
+    bg = '#1F2223',
+    black ='#1B1B1B',
+    skyblue = '#458588',
+    cyan = '#83a597',
+    green = '#689d6a',
+    oceanblue = '#1d2021',
+    magenta = '#fb4934',
+    orange = '#fabd2f',
+    red = '#cc241d',
+    violet = '#b16286',
+    white = '#ebdbb2',
+    yellow = '#d79921',
+}
+local feline = require('feline')
+feline.setup({
+    theme = gruvbox
+})
+-- git stuff
+require('gitsigns').setup()
 EOF
 
 
