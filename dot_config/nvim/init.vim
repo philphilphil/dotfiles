@@ -19,6 +19,7 @@ set signcolumn=yes
 set termguicolors
 set shortmess+=c
 set updatetime=300
+set colorcolumn=99
 
 " Tabs size
 set expandtab
