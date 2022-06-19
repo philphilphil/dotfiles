@@ -47,6 +47,15 @@ keybinds:
           key: [ Alt: '+']
         - action: [Resize: Decrease,]
           key: [ Alt: '-']
+        - action: [GoToTab: 1]
+          key: [ Alt: '1',]
+        - action: [GoToTab: 2]
+          key: [ Alt: '2',]
+        - action: [GoToTab: 3]
+          key: [ Alt: '3',]
+        - action: [GoToTab: 4]
+          key: [ Alt: '4',]
+
     locked:
         - action: [SwitchToMode: Normal,]
           key: [Ctrl: 'x',]
