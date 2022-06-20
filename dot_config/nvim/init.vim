@@ -126,6 +126,7 @@ call plug#begin()
     " Git 
     Plug 'lewis6991/gitsigns.nvim'
     Plug 'TimUntersberger/neogit'
+    Plug 'sindrets/diffview.nvim'
 
     " rust specific
     Plug 'simrat39/rust-tools.nvim'
@@ -262,6 +263,11 @@ feline.setup({
 })
 -- git stuff
 require('gitsigns').setup()
+require("neogit").setup {
+   integrations = {
+    diffview = true  
+    },
+  }
 EOF
 
 
