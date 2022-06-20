@@ -77,7 +77,6 @@ nnoremap <leader>r <cmd>Telescope live_grep<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>vh <cmd>Telescope help_tags<cr>
 nnoremap <leader>vc <cmd>Telescope commands<cr>
-nnoremap <leader>p <cmd>Telescope projects<cr>
 
 " m/mm for cut
 nnoremap m d
@@ -105,11 +104,8 @@ call plug#begin()
     " nicer buffers
     Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 
-    " file tree
+    " tree
     Plug 'kyazdani42/nvim-tree.lua'
-
-    " project opener
-    Plug 'ahmedkhalf/project.nvim'
 
     " search
     Plug 'nvim-telescope/telescope.nvim'
@@ -265,10 +261,6 @@ feline.setup({
 })
 -- git stuff
 require('gitsigns').setup()
-
--- projects
-require("project_nvim").setup {}
-require('telescope').load_extension('projects')
 EOF
 
 
