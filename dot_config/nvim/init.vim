@@ -125,6 +125,7 @@ call plug#begin()
 
     " Git 
     Plug 'lewis6991/gitsigns.nvim'
+    Plug 'TimUntersberger/neogit'
 
     " rust specific
     Plug 'simrat39/rust-tools.nvim'
