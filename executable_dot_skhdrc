@@ -1,6 +1,6 @@
 # focus window
-#alt - j : yabai -m window --focus next
-#alt - k : yabai -m window --focus prev
+shift + alt - j : yabai -m window --focus next
+shift + alt - k : yabai -m window --focus prev
 
 # swap window
 shift + alt - h : ~/.scripts/cycle_counterclockwise.sh
