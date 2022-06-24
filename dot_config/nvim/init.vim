@@ -89,14 +89,16 @@ nnoremap M D
 call plug#begin()
     " misc
     Plug 'nvim-lua/plenary.nvim'
-    Plug 'kyazdani42/nvim-web-devicons' 
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'kyazdani42/nvim-web-devicons' 
 
     " better status line
-    Plug 'feline-nvim/feline.nvim'
+    " Plug 'feline-nvim/feline.nvim'
+    Plug 'nvim-lualine/lualine.nvim'
 
     " theme
     Plug 'gruvbox-community/gruvbox'
+    Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
     " blazingly fast navigation
     Plug 'ggandor/lightspeed.nvim'
@@ -144,13 +146,12 @@ call plug#end()
 
 
 """"""" Plugin Settings """""""
-colorscheme gruvbox
-
-let g:airline_theme='gruvbox'
+let g:tokyonight_style = "night"
 let g:airline#extensions#tabline#enabled = 0
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:rustfmt_autosave = 1 
 
+" colorscheme gruvbox
+colorscheme tokyonight
 """"""" Lua Plugin Settings """""""
 lua <<EOF
 local nvim_lsp = require'lspconfig'
@@ -242,25 +243,8 @@ require("nvim-tree").setup({
 })
 
 -- Status line
-local gruvbox = {
-    fg = '#928374',
-    bg = '#1F2223',
-    black ='#1B1B1B',
-    skyblue = '#458588',
-    cyan = '#83a597',
-    green = '#689d6a',
-    oceanblue = '#1d2021',
-    magenta = '#fb4934',
-    orange = '#fabd2f',
-    red = '#cc241d',
-    violet = '#b16286',
-    white = '#ebdbb2',
-    yellow = '#d79921',
-}
-local feline = require('feline')
-feline.setup({
-    theme = gruvbox
-})
+require('lualine').setup()
+
 -- git stuff
 require('gitsigns').setup()
 require("neogit").setup {
