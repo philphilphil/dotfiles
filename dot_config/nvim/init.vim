@@ -33,8 +33,8 @@ syntax on
 let mapleader = "\<space>"
 map <Esc><Esc> :w<CR>
 nmap <leader>k :nohlsearch<CR>
-nnoremap <Leader>= :vertical resize +40<CR>
-nnoremap <Leader>- :vertical resize -40<CR>
+nnoremap <Leader>= :vertical resize +20<CR>
+nnoremap <Leader>- :vertical resize -20<CR>
 
 " Buffer navigation
 nnoremap <silent> gb :BufferLinePick<CR>
@@ -116,6 +116,7 @@ call plug#begin()
     Plug 'svermeulen/vim-cutlass'
 
     " lsp / code stuff
+    Plug 'williamboman/nvim-lsp-installer'
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-cmp'
     Plug 'hrsh7th/cmp-nvim-lsp'
@@ -155,6 +156,9 @@ colorscheme tokyonight
 """"""" Lua Plugin Settings """""""
 lua <<EOF
 local nvim_lsp = require'lspconfig'
+
+-- easy lsp installer
+require("nvim-lsp-installer").setup {}
 
 -- Rust analyzer
 local opts = {
