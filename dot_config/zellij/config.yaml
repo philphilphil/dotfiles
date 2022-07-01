@@ -20,7 +20,7 @@ keybinds:
         - action: [SwitchToMode: Pane,]
           key: [Ctrl: 'e',]
         - action: [SwitchToMode: Resize,]
-          key: [Ctrl: 'w',]
+          key: [Ctrl: 'z',]
         - action: [SwitchToMode: Move,]
           key: [Ctrl: 'h',]
         - action: [SwitchToMode: Tmux,]
