@@ -19,3 +19,4 @@ nnoremap M D
 map <Esc><Esc> :w<CR>
 nmap <leader>k :nohlsearch<CR>
 nnoremap gr :vsc Edit.FindAllReferences<cr>
+nnoremap gn :vsc Refactor.Rename<cr>
