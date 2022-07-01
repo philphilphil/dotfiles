@@ -182,6 +182,15 @@ local opts = {
 
 require('rust-tools').setup(opts)
 
+-- nvim-treesitter
+require'nvim-treesitter.configs'.setup 
+{ 
+  highlight = { enable = true }, 
+  incremental_selection = { enable = true }, 
+  textobjects = { enable = true }
+}
+
+
 -- OmniSharp for c#
 require'lspconfig'.omnisharp.setup {
   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
