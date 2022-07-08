@@ -78,6 +78,8 @@ nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>vh <cmd>Telescope help_tags<cr>
 nnoremap <leader>vc <cmd>Telescope commands<cr>
 nnoremap <leader>p <cmd>Telescope projects<cr>
+nnoremap <leader>t <cmd>TODOTelescope<cr>
+
 
 " m/mm for cut
 nnoremap m d
@@ -147,6 +149,9 @@ call plug#begin()
 
     " switch between projects easy
     Plug 'ahmedkhalf/project.nvim'
+
+    " hl and search for TODO FIXME etc.
+    Plug 'AmeerTaweel/todo.nvim'
 call plug#end()
 
 
@@ -274,6 +279,9 @@ require("neogit").setup {
 -- project switcher
   require("project_nvim").setup {}
   require('telescope').load_extension('projects')
+
+
+  require("todo").setup {}
 EOF
 
 
