@@ -77,6 +77,7 @@ nnoremap <leader>r <cmd>Telescope live_grep<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>vh <cmd>Telescope help_tags<cr>
 nnoremap <leader>vc <cmd>Telescope commands<cr>
+nnoremap <leader>p <cmd>Telescope projects<cr>
 
 " m/mm for cut
 nnoremap m d
@@ -143,6 +144,9 @@ call plug#begin()
 
     " Error list at bottom
     Plug 'folke/trouble.nvim'
+
+    " switch between projects easy
+    Plug 'ahmedkhalf/project.nvim'
 call plug#end()
 
 
@@ -247,11 +251,11 @@ require("trouble").setup {}
 
 -- file tree
 require("nvim-tree").setup({
-  update_cwd = true,
+  sync_root_with_cwd = true,
   respect_buf_cwd = true,
   update_focused_file = {
     enable = true,
-    update_cwd = true
+    update_root = true
   },
 })
 
@@ -265,6 +269,11 @@ require("neogit").setup {
     diffview = true  
     },
   }
+
+
+-- project switcher
+  require("project_nvim").setup {}
+  require('telescope').load_extension('projects')
 EOF
 
 
