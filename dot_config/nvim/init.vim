@@ -102,6 +102,7 @@ call plug#begin()
     " theme
     Plug 'gruvbox-community/gruvbox'
     Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+    Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
     " blazingly fast navigation
     Plug 'ggandor/lightspeed.nvim'
@@ -159,12 +160,18 @@ call plug#end()
 let g:tokyonight_style = "night"
 let g:airline#extensions#tabline#enabled = 0
 let g:rustfmt_autosave = 1 
+let g:catppuccin_flavour = "macchiato" " latte, frappe, macchiato, mocha
 
 " colorscheme gruvbox
-colorscheme tokyonight
-""""""" Lua Plugin Settings """""""
+" colorscheme tokyonight
+colorscheme catppuccin
+
+"""""" Lua Plugin Settings """""""
 lua <<EOF
 local nvim_lsp = require'lspconfig'
+
+--- theme
+require("catppuccin").setup()
 
 -- easy lsp installer
 require("nvim-lsp-installer").setup {}
