@@ -39,6 +39,7 @@ yabai -m config mouse_drop_action            swap
 yabai -m rule --add app="^Stats$" manage=off
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Microsoft Remote Desktop$" manage=off
+yabai -m rule --add app="^Zwift$" manage=off
 
 # general space settings
 yabai -m config layout                       bsp
