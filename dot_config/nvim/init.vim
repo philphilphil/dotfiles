@@ -197,6 +197,7 @@ local opts = {
 }
 
 require('rust-tools').setup(opts)
+require('rust-tools').inlay_hints.disable()
 
 -- nvim-treesitter
 require'nvim-treesitter.configs'.setup 
