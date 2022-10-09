@@ -182,7 +182,7 @@ local opts = {
         autoSetHints = false,
         hover_with_actions = true,
         inlay_hints = {
-            enabled = false
+              only_current_line = true,
         },
     },
     server = {
@@ -197,7 +197,6 @@ local opts = {
 }
 
 require('rust-tools').setup(opts)
-require('rust-tools').inlay_hints.disable()
 
 -- nvim-treesitter
 require'nvim-treesitter.configs'.setup 
