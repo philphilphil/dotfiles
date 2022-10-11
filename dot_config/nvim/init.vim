@@ -138,7 +138,7 @@ call plug#begin()
     Plug 'rust-lang/rust.vim'
 
     " comment code in and out
-    Plug 'tpope/vim-commentary'     
+    Plug 'numToStr/Comment.nvim'
 
     " auto pairs for for brackets
     Plug 'jiangmiao/auto-pairs'
@@ -277,6 +277,7 @@ require("neogit").setup {
     },
   }
 
+  require('Comment').setup()
   require("todo").setup {}
 
   local wilder = require('wilder')
