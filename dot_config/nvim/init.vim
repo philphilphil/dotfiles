@@ -1,6 +1,5 @@
 """""" Settings """"""
 set background=dark
-set clipboard=unnamedplus
 set completeopt=noinsert,menuone,noselect
 set cursorline
 set clipboard=unnamedplus
@@ -37,17 +36,17 @@ nnoremap <Leader>= :vertical resize +20<CR>
 nnoremap <Leader>- :vertical resize -20<CR>
 
 " Buffer navigation
-nnoremap <silent> gb :BufferLinePick<CR>
-nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
-nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
-nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
-nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
-nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
-nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
-nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
-nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
-nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
-nnoremap <silent><leader>w <Cmd>bd<CR>
+nnoremap <silent> gb :BufferPick<CR>
+nnoremap <silent><leader>1 <Cmd>BufferGoto 1<CR>
+nnoremap <silent><leader>2 <Cmd>BufferGoto 2<CR>
+nnoremap <silent><leader>3 <Cmd>BufferGoto 3<CR>
+nnoremap <silent><leader>4 <Cmd>BufferGoto 4<CR>
+nnoremap <silent><leader>5 <Cmd>BufferGoto 5<CR>
+nnoremap <silent><leader>6 <Cmd>BufferGoto 6<CR>
+nnoremap <silent><leader>7 <Cmd>BufferGoto 7<CR>
+nnoremap <silent><leader>8 <Cmd>BufferGoto 8<CR>
+nnoremap <silent><leader>9 <Cmd>BufferGoto 9<CR>
+nnoremap <silent><leader>w <Cmd>BufferClose<CR>
 
 " Code navigation shortcuts
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
@@ -77,7 +76,6 @@ nnoremap <leader>r <cmd>Telescope live_grep<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>vh <cmd>Telescope help_tags<cr>
 nnoremap <leader>vc <cmd>Telescope commands<cr>
-nnoremap <leader>p <cmd>Telescope projects<cr>
 nnoremap <leader>t <cmd>TODOTelescope<cr>
 
 
@@ -99,16 +97,16 @@ call plug#begin()
     " Plug 'feline-nvim/feline.nvim'
     Plug 'nvim-lualine/lualine.nvim'
 
-    " theme
+    " themes
     Plug 'gruvbox-community/gruvbox'
     Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
     Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
-    " blazingly fast navigation
-    Plug 'ggandor/lightspeed.nvim'
-
     " nicer buffers
-    Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+    Plug 'romgrk/barbar.nvim'
+
+    " autocomplete for commands
+     Plug 'gelguy/wilder.nvim'
 
     " tree
     Plug 'kyazdani42/nvim-tree.lua'
@@ -147,10 +145,7 @@ call plug#begin()
 
     " Error list at bottom
     Plug 'folke/trouble.nvim'
-
-    " switch between projects easy
-    Plug 'ahmedkhalf/project.nvim'
-
+  
     " hl and search for TODO FIXME etc.
     Plug 'AmeerTaweel/todo.nvim'
 call plug#end()
@@ -256,7 +251,7 @@ for type, icon in pairs(signs) do
 end
 
 -- Better bufferline with icons and all
-require("bufferline").setup{}
+-- require("bufferline").setup{}
 
 -- Error list at bottom
 require("trouble").setup {}
@@ -282,14 +277,14 @@ require("neogit").setup {
     },
   }
 
-
--- project switcher
-  require("project_nvim").setup {}
-  require('telescope').load_extension('projects')
-
-
   require("todo").setup {}
+
+  local wilder = require('wilder')
+  wilder.setup({modes = {':', '/', '?'}})
+ wilder.set_option('renderer', wilder.wildmenu_renderer({
+  highlighter = wilder.basic_highlighter(),
+  separator = ' · ',
+  left = {' ', wilder.wildmenu_spinner(), ' '},
+  right = {' ', wilder.wildmenu_index()},
+}))
 EOF
-
-
-
