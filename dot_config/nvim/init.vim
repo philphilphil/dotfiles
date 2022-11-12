@@ -180,15 +180,6 @@ local opts = {
               only_current_line = true,
         },
     },
-    server = {
-        settings = {
-            ["rust-analyzer"] = {
-                checkOnSave = {
-                    command = "clippy"
-                },
-            }
-        }
-    },
 }
 
 require('rust-tools').setup(opts)
