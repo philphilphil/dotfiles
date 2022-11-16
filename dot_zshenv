@@ -1,0 +1,3 @@
+. "$HOME/.cargo/env"
+export PATH=/home/phil/.local/bin:$PATH
+export PATH=/home/phil/bin:$PATH
