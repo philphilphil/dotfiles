@@ -6,8 +6,7 @@ vim.opt.relativenumber = true
 vim.opt.timeoutlen = 0
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.keys.normal_mode["<Esc><Esc>"] = ":w<CR>"
+lvim.keys.normal_mode["<Esc>"] = ":w<CR>"
 lvim.keys.visual_block_mode['J'] = ":move '>+1<CR>gv-gv"
 lvim.keys.visual_block_mode['K'] = ":move '<-2<CR>gv-gv"
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
@@ -17,12 +16,12 @@ lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- override a default keymapping
 lvim.keys.normal_mode["<C-d>"] = "<C-d>zz" -- or vim.keymap.set("n", "<C-q>", ":q<cr>" )
 lvim.keys.normal_mode["<C-u>"] = "<C-u>zz" -- or vim.keymap.set("n", "<C-q>", ":q<cr>" )
-lvim.keys.normal_mode["1"] = ":BufferLineGoTo 1<CR>"
-lvim.keys.normal_mode["2"] = ":BufferLineGoTo 2<CR>"
-lvim.keys.normal_mode["3"] = ":BufferLineGoTo 3<CR>"
-lvim.keys.normal_mode["4"] = ":BufferLineGoTo 4<CR>"
-lvim.keys.normal_mode["5"] = ":BufferLineGoTo 5<CR>"
-lvim.keys.normal_mode["6"] = ":BufferLineGoTo 6<CR>"
+lvim.keys.normal_mode["<leader>1"] = ":BufferLineGoTo 1<CR>"
+lvim.keys.normal_mode["<leader>2"] = ":BufferLineGoTo 2<CR>"
+lvim.keys.normal_mode["<leader>3"] = ":BufferLineGoTo 3<CR>"
+lvim.keys.normal_mode["<leader>4"] = ":BufferLineGoTo 4<CR>"
+lvim.keys.normal_mode["<leader>5"] = ":BufferLineGoTo 5<CR>"
+lvim.keys.normal_mode["<leader>6"] = ":BufferLineGoTo 6<CR>"
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 local _, actions = pcall(require, "telescope.actions")
