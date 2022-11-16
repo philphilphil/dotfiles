@@ -4,24 +4,34 @@ lvim.format_on_save.enabled = true
 lvim.colorscheme = "lunar"
 vim.opt.relativenumber = true
 vim.opt.timeoutlen = 0
--- keymappings [view all the defaults by pressing <leader>Lk]
+
+-- basics
 lvim.leader = "space"
 lvim.keys.normal_mode["<Esc>"] = ":w<CR>"
+
+-- move lines in visual mode
 lvim.keys.visual_block_mode['J'] = ":move '>+1<CR>gv-gv"
 lvim.keys.visual_block_mode['K'] = ":move '<-2<CR>gv-gv"
-lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
-lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
--- unmap a default keymapping
--- vim.keymap.del("n", "<C-Up>")
--- override a default keymapping
+
+-- center when going up/down
 lvim.keys.normal_mode["<C-d>"] = "<C-d>zz" -- or vim.keymap.set("n", "<C-q>", ":q<cr>" )
 lvim.keys.normal_mode["<C-u>"] = "<C-u>zz" -- or vim.keymap.set("n", "<C-q>", ":q<cr>" )
-lvim.keys.normal_mode["<leader>1"] = ":BufferLineGoTo 1<CR>"
-lvim.keys.normal_mode["<leader>2"] = ":BufferLineGoTo 2<CR>"
-lvim.keys.normal_mode["<leader>3"] = ":BufferLineGoTo 3<CR>"
-lvim.keys.normal_mode["<leader>4"] = ":BufferLineGoTo 4<CR>"
-lvim.keys.normal_mode["<leader>5"] = ":BufferLineGoTo 5<CR>"
-lvim.keys.normal_mode["<leader>6"] = ":BufferLineGoTo 6<CR>"
+
+-- buffer navigation
+-- lvim.keys.normal_mode["<leader>1"] = ":BufferLineGoTo 1<CR>"
+lvim.builtin.which_key.mappings['1'] = { "<cmd>BufferLineGoTo 1<CR>", "which_key_ignore" }
+lvim.builtin.which_key.mappings['2'] = { "<cmd>BufferLineGoTo 2<CR>", "which_key_ignore" }
+lvim.builtin.which_key.mappings['3'] = { "<cmd>BufferLineGoTo 3<CR>", "which_key_ignore" }
+lvim.builtin.which_key.mappings['4'] = { "<cmd>BufferLineGoTo 4<CR>", "which_key_ignore" }
+lvim.builtin.which_key.mappings['5'] = { "<cmd>BufferLineGoTo 5<CR>", "which_key_ignore" }
+lvim.builtin.which_key.mappings['6'] = { "<cmd>BufferLineGoTo 6<CR>", "which_key_ignore" }
+lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
+lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
+
+-- remove some uneeded things
+lvim.builtin.which_key.mappings['/'] = {}
+lvim.builtin.which_key.mappings['w'] = {}
+lvim.builtin.which_key.mappings['T'] = {}
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 local _, actions = pcall(require, "telescope.actions")
@@ -47,15 +57,7 @@ lvim.builtin.telescope.defaults.mappings = {
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.which_key.mappings["t"] = { "<cmd>TODOTelescope<CR>", "Todos" }
--- lvim.builtin.which_key.mappings["t"] = {
---   name = "+Trouble",
---   r = { "<cmd>Trouble lsp_references<cr>", "References" },
---   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
---   d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
---   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
---   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
---   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
--- }
+lvim.builtin.which_key.mappings["x"] = { "<cmd>TroubleToggle workspace_diagnostics<CR>", "Trouble" }
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
@@ -173,7 +175,7 @@ end
 
 vim.api.nvim_set_keymap("n", "<m-d>", "<cmd>RustOpenExternalDocs<Cr>", { noremap = true, silent = true })
 
-lvim.builtin.which_key.mappings["R"] = {
+lvim.builtin.which_key.mappings["r"] = {
   name = "Rust",
   r = { "<cmd>RustRunnables<Cr>", "Runnables" },
   t = { "<cmd>lua _CARGO_TEST()<cr>", "Cargo Test" },
@@ -191,6 +193,7 @@ lvim.builtin.which_key.mappings["R"] = {
 
 lvim.plugins = {
   "AmeerTaweel/todo.nvim",
+  "folke/trouble.nvim",
   "simrat39/rust-tools.nvim",
   {
     "saecki/crates.nvim",
