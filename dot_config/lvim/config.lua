@@ -82,6 +82,19 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
 
+-- bigger telescope windows
+lvim.builtin.telescope.pickers = {
+  find_files = {
+    layout_config = {
+      width = 0.9,
+    },
+  },
+  live_grep = {
+    layout_config = {
+      width = 0.9,
+    },
+  },
+}
 
 -- RUST DEBUG/LSP settings
 lvim.builtin.dap.active = true
