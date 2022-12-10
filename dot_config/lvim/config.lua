@@ -4,10 +4,12 @@ lvim.format_on_save.enabled = true
 lvim.colorscheme = "lunar"
 vim.opt.relativenumber = true
 vim.opt.timeoutlen = 0
+vim.opt.foldmethod = "expr"
 
 -- basics
 lvim.leader = "space"
 lvim.keys.normal_mode["<Esc>"] = ":w<CR>"
+lvim.builtin.indentlines.active = false;
 
 -- move lines in visual mode
 lvim.keys.visual_block_mode['J'] = ":move '>+1<CR>gv-gv"
@@ -206,6 +208,7 @@ lvim.builtin.which_key.mappings["r"] = {
 
 lvim.plugins = {
   "AmeerTaweel/todo.nvim",
+  "ThePrimeagen/vim-be-good",
   "folke/trouble.nvim",
   "simrat39/rust-tools.nvim",
   {
