@@ -58,6 +58,7 @@ lvim.builtin.telescope.defaults.mappings = {
 
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+lvim.builtin.which_key.mappings["f"] = { "<cmd>Telescope find_files<CR>", "Find Files" }
 lvim.builtin.which_key.mappings["t"] = { "<cmd>TODOTelescope<CR>", "Todos" }
 lvim.builtin.which_key.mappings["x"] = { "<cmd>TroubleToggle workspace_diagnostics<CR>", "Trouble" }
 
