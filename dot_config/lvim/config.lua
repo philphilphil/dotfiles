@@ -11,13 +11,13 @@ lvim.leader = "space"
 lvim.keys.normal_mode["<Esc>"] = ":w<CR>"
 lvim.builtin.indentlines.active = false;
 
--- move lines in visual mode
+-- move lines up/down in visual mode
 lvim.keys.visual_block_mode['J'] = ":move '>+1<CR>gv-gv"
 lvim.keys.visual_block_mode['K'] = ":move '<-2<CR>gv-gv"
 
 -- center when going up/down
-lvim.keys.normal_mode["<C-d>"] = "<C-d>zz" -- or vim.keymap.set("n", "<C-q>", ":q<cr>" )
-lvim.keys.normal_mode["<C-u>"] = "<C-u>zz" -- or vim.keymap.set("n", "<C-q>", ":q<cr>" )
+lvim.keys.normal_mode["<C-u>"] = "<C-u>zz"
+lvim.keys.normal_mode["<C-d>"] = "<C-d>zz"
 
 -- buffer navigation
 -- lvim.keys.normal_mode["<leader>1"] = ":BufferLineGoTo 1<CR>"
@@ -208,6 +208,7 @@ lvim.builtin.which_key.mappings["r"] = {
 }
 
 lvim.plugins = {
+  "svermeulen/vim-cutlass",
   "AmeerTaweel/todo.nvim",
   "ThePrimeagen/vim-be-good",
   "folke/trouble.nvim",
