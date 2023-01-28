@@ -31,6 +31,8 @@ return require('packer').startup(function(use)
     end
   })
 
+  use 'nvim-tree/nvim-web-devicons'
+
   use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
   use('nvim-treesitter/playground')
   use('mbbill/undotree')
@@ -55,10 +57,48 @@ return require('packer').startup(function(use)
       -- Snippets
       { 'L3MON4D3/LuaSnip' },
       { 'rafamadriz/friendly-snippets' },
+
     }
   }
 
   use("eandrju/cellular-automaton.nvim")
+
+  -- todo hl and telescope
+  use("AmeerTaweel/todo.nvim")
+
+  -- file tree
+  use("nvim-tree/nvim-tree.lua")
+  require("todo").setup()
+
+  -- git signs on the left site
+  use("lewis6991/gitsigns.nvim")
+  require('gitsigns').setup()
+
+  -- shortcut help
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+      require("which-key").setup {
+      }
+    end
+  }
+
+  -- comments
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
+  }
+
+  -- status line
+  use("nvim-lualine/lualine.nvim")
+  require('lualine').setup()
+
+  -- buffer line
+  use("romgrk/barbar.nvim")
 
   -- Automatically set up your configuration after cloning packer.nvim
   if packer_bootstrap then
