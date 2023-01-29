@@ -53,12 +53,14 @@ wk.register({
   ["5"]= { "<cmd>BufferGoto 5<CR>", "which_key_ignore" },
   ["6"]= { "<cmd>BufferGoto 6<CR>", "which_key_ignore" },
   ["7"]= { "<cmd>BufferGoto 7<CR>", "which_key_ignore" },
-  ["0"]= { "<cmd>BufferGoto 7<CR>", "Pin Buffer" },
-  w = { "<cmd>BufferGoto 7<CR>", "Close Buffer" },
+  ["0"]= { "<cmd>BufferPin<CR>", "Pin Buffer" },
+  w = { "<cmd>BufferClose<CR>", "Close Buffer" },
 
   -- paste and delete withount yanking
   p = { [["_dP]], "Paste w/o y" },
   d = { [["_d]], "Del w/o y" },
+
+  -- other features
   u = { "<cmd>UndotreeToggle<CR>", "Undotree" },
   e = { "<cmd>NvimTreeToggle<CR>", "File Tree" },
 
