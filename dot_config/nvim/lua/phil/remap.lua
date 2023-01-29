@@ -28,10 +28,10 @@ local wk = require("which-key")
 wk.register({
   s = {
     name = "Search", -- optional group name
-    t = { "<cmd>Telescope live_grep<cr>", "Grep Files" },
+    g = { "<cmd>Telescope live_grep<cr>", "Grep Files" },
     b = { "<cmd>Telescope buffers<cr>", "Buffers" },
     r = { "<cmd>Telescope oldfiles<cr>", "Recent Files" },
-    g = { "<cmd>Telescope find_files<cr>", "All Files" },
+    f = { "<cmd>Telescope find_files<cr>", "All Files" },
     c = { "<cmd>Telescope commands<cr>", "Vim Commands" },
   },
   g = {
