@@ -20,8 +20,8 @@ vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 
 -- bufferline
-vim.keymap.set("n", "<S-l>", "<cmd>BufferPrevious<CR>")
-vim.keymap.set("n", "<S-h>", "<cmd>BufferNext<CR>")
+vim.keymap.set("n", "<S-h>", "<cmd>BufferPrevious<CR>")
+vim.keymap.set("n", "<S-l>", "<cmd>BufferNext<CR>")
 
 -- do most keymaps in whichkey for nice documentation
 local wk = require("which-key")
@@ -38,11 +38,12 @@ wk.register({
       name = "Code",
       a = { function() vim.lsp.buf.code_action() end, "Code Action" },
       n = { function() vim.lsp.buf.rename() end, "Rename" },
+      f = { function() vim.lsp.buf.format() end, "Format" },
       r = { "<cmd>Telescope lsp_references<cr>", "References" },
   },
   -- more telescope things
   f = { "<cmd>Telescope git_files<cr>", "Find Git File" },
-  x = { "<cmd>Telescope diagnostics<cr>", "LSP Diagnostics" },
+  x = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "LSP Diagnostics" },
   t = { "<cmd>TODOTelescope<CR>", "Todos" },
 
   -- bffer navigation
