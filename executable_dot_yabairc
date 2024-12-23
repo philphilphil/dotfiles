@@ -38,10 +38,16 @@ yabai -m config mouse_action2                resize
 yabai -m config mouse_drop_action            swap
 yabai -m rule --add app="^Stats$" manage=off
 yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Microsoft Remote Desktop$" manage=off
 yabai -m rule --add app="^Zwift$" manage=off
 yabai -m rule --add app="^ZwiftApp$" manage=off
 yabai -m rule --add app="^Steam$" manage=off
+yabai -m rule --add app="^TeamViewer$" manage=off
+yabai -m rule --add app="^Moonlight$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^UTM$" manage=off
+yabai -m rule --add app="^Music$" manage=off
 
 # general space settings
 yabai -m config layout                       bsp
