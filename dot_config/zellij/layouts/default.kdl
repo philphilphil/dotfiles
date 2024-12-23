@@ -5,13 +5,19 @@ layout {
             plugin location="zellij:compact-bar"
         }
     }
-    tab focus=true split_direction="Horizontal" name="Code" {
-        pane size="80%" focus=true
-        pane
+    tab focus=true name="Code" {
+        pane focus=true
+        pane split_direction="horizontal" {
+            pane
+            pane
+        }
     }
-    tab split_direction="Horizontal" name="Misc" {
+    tab name="Misc" {
         pane
-        pane
+        pane split_direction="horizontal" {
+            pane
+            pane
+        }
     }
     tab split_direction="Horizontal" name="Server" {
         pane
